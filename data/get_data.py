@@ -78,7 +78,7 @@ if __name__ == '__main__':
     absdir = os.path.dirname(abspath)
     os.chdir(absdir)
     # set date range
-    start = '2022-01'
+    start = '1995-01'
     end = '2022-05'
     with open('authorities_list.txt', 'r') as f:
         my_list = [line.rstrip() for line in f]
