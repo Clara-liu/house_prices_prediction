@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 import logging
 import pandas as pd
 
@@ -10,6 +11,7 @@ from tqdm import tqdm
 def strip_invalid_words(region_name: str)-> str:
     stop_words = ['city', 'council', 'borough']
     return filter(lambda x: x not in stop_words, region_name.split())
+
 
 def format_query(region: str, start_month: str, end_month: str)->str:
     formatted_region = '-'.join(strip_invalid_words(region.lower()))
@@ -71,20 +73,28 @@ def request_data(query: str, region: str)-> dict:
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
+    # find where we are
+    abspath = os.path.abspath(__file__)
+    absdir = os.path.dirname(abspath)
+    os.chdir(absdir)
+    # set date range
+    start = '2022-01'
+    end = '2022-05'
     with open('authorities_list.txt', 'r') as f:
         my_list = [line.rstrip() for line in f]
-    data = None
+    saved_data = False
     for region in tqdm(my_list):
-        query = format_query(region, '2022-01', '2022-03')
+        query = format_query(region, start, end)
         df = request_data(query, region)
         if df is None:
             logging.warn(f'Data for {region} not obtained.')
         else:
-            if data is None:
-                data = df
+            if not saved_data:
+                df.to_csv('data.txt', index=False, sep = '\t')
+                saved_data = True
             else:
-                data = pd.concat([data, df], ignore_index=True)
+                df.to_csv('data.txt', index=False, sep = '\t', header=False, mode='a')
+    # count available regions
+    data = pd.read_csv('data.txt', sep = '\t')
     available_regions = data['Region'].unique()
     logging.info(f'Out of {len(my_list)}, {len(available_regions)} regions have available data.')
-    logging.info('Saving data...')
-    data.to_csv('data.txt', index=False, sep = '\t')
