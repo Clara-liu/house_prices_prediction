@@ -1,0 +1,315 @@
+Barking and Dagenham
+Barnet
+Bexley
+Brent
+Bromley
+Camden
+Croydon
+Ealing
+Enfield
+Greenwich
+Hackney
+Hammersmith and Fulham
+Haringey
+Harrow
+Havering
+Hillingdon
+Hounslow
+Islington
+Kensington and Chelsea
+Kingston upon Thames
+Lambeth
+Lewisham
+Merton
+Newham
+Redbridge
+Richmond upon Thames
+Southwark
+Sutton
+Tower Hamlets
+Waltham Forest
+Wandsworth
+Westminster
+Barnsley Borough Council
+Birmingham City Council
+Bolton Borough Council
+Bradford City Council
+Bury Borough Council
+Calderdale Borough Council
+Coventry City Council
+Doncaster Borough Council
+Dudley Borough Council
+Gateshead Borough Council
+Kirklees Borough Council
+Knowsley Borough Council
+Leeds City Council
+Liverpool City Council
+Manchester City Council
+North Tyneside Borough Council
+Newcastle Upon Tyne City Council
+Oldham Borough Council
+Rochdale Borough Council
+Rotherham Borough Council
+South Tyneside Borough Council
+Salford City Council
+Sandwell Borough Council
+Sefton Borough Council
+Sheffield City Council
+Solihull Borough Council
+St Helens Borough Council
+Stockport Borough Council
+Sunderland City Council
+Tameside Borough Council
+Trafford Borough Council
+Wakefield City Council
+Walsall Borough Council
+Wigan Borough Council
+Wirral Borough Council
+Wolverhampton City Council
+Bath and North East Somerset Council
+Bedford Borough Council
+Blackburn with Darwen Borough Council
+Blackpool Council
+Bournemouth, Christchurch and Poole Council
+Bracknell Forest Borough Council
+Brighton and Hove City Council
+Bristol City Council
+Buckinghamshire Council
+Central Bedfordshire Council
+Cheshire East Council
+Cheshire West and Chester Council
+Cornwall Council
+Cumberland Council
+Durham County Council
+Darlington Borough Council
+Derby City Council
+Dorset Council
+East Riding of Yorkshire Council
+Halton Borough Council
+Hartlepool Borough Council
+Herefordshire Council
+Isle of Wight Council
+Hull City Council
+Leicester City Council
+Luton Borough Council
+Medway Council
+Middlesbrough Borough Council
+Milton Keynes Council
+North East Lincolnshire Council
+North Lincolnshire Council
+North Northamptonshire Council
+North Somerset Council
+North Yorkshire Council
+Northumberland County Council
+Nottingham City Council
+Peterborough City Council
+Plymouth City Council
+Portsmouth City Council
+Reading Borough Council
+Redcar and Cleveland Borough Council
+Rutland County Council
+Shropshire Council
+Slough Borough Council
+Somerset Council
+Southampton City Council
+Southend-on-Sea Borough Council
+South Gloucestershire Council
+Stockton-on-Tees Borough Council
+Stoke-on-Trent City Council
+Swindon Borough Council
+Telford and Wrekin Borough Council
+Thurrock Council
+Torbay Council
+Warrington Borough Council
+Westmorland and Furness Council
+West Berkshire Council
+West Northamptonshire Council
+Wiltshire Council
+Windsor and Maidenhead Borough Council
+Wokingham Borough Council
+City of York Council
+Cambridgeshire County Council
+Derbyshire County Council
+Devon County Council
+East Sussex County Council
+Essex County Council
+Gloucestershire County Council
+Hampshire County Council
+Hertfordshire County Council
+Kent County Council
+Lancashire County Council
+Leicestershire County Council
+Lincolnshire County Council
+Norfolk County Council
+Nottinghamshire County Council
+Oxfordshire County Council
+Staffordshire County Council
+Suffolk County Council
+Surrey County Council
+Warwickshire County Council
+West Sussex County Council
+Worcestershire County Council
+Adur District Council
+Amber Valley Borough Council
+Arun District Council
+Ashfield District Council
+Ashford Borough Council
+Babergh District Council
+Basildon Borough Council
+Basingstoke & Deane Borough Council
+Bassetlaw District Council
+Blaby District Council
+Bolsover District Council
+Boston Borough Council
+Braintree District Council
+Breckland District Council
+Brentwood Borough Council
+Broadland District Council
+Bromsgrove District Council
+Broxbourne Borough Council
+Broxtowe Borough Council
+Burnley Borough Council
+Cambridge City Council
+Cannock Chase District Council
+Canterbury City Council
+Castle Point District Council
+Charnwood Borough Council
+Chelmsford City Council
+Cheltenham Borough Council
+Cherwell District Council
+Chesterfield Borough Council
+Chichester District Council
+Chorley Borough Council
+Colchester Borough Council
+Cotswold District Council
+Crawley Borough Council
+Dacorum Borough Council
+Dartford Borough Council
+Derbyshire Dales District Council
+Dover District Council
+East Cambridgeshire District Council
+East Devon District Council
+East Hampshire District Council
+East Hertfordshire District Council
+East Lindsey District Council
+East Staffordshire Borough Council
+East Suffolk Council
+Eastbourne Borough Council
+Eastleigh Borough Council
+Elmbridge Borough Council
+Epping Forest District Council
+Epsom & Ewell Borough Council
+Erewash Borough Council
+Exeter City Council
+Fareham Borough Council
+Fenland District Council
+Folkestone and Hythe District Council
+Forest of Dean District Council
+Fylde Borough Council
+Gedling Borough Council
+Gloucester City Council
+Gosport Borough Council
+Gravesham Borough Council
+Great Yarmouth Borough Council
+Guildford Borough Council
+Harborough District Council
+Harlow District Council
+Hart District Council
+Hastings Borough Council
+Havant Borough Council
+Hertsmere Borough Council
+High Peak Borough Council
+Hinckley and Bosworth Borough Council
+Horsham District Council
+Huntingdonshire District Council
+Hyndburn Borough Council
+Ipswich Borough Council
+Kings Lynn & West Norfolk Borough Council
+Lancaster City Council
+Lewes District Council
+Lichfield City Council
+Lincoln City Council
+Maidstone Borough Council
+Maldon District Council
+Malvern Hills District Council
+Mansfield District Council
+Melton Borough Council
+Mid Devon District Council
+Mid Suffolk District Council
+Mid Sussex District Council
+Mole Valley District Council
+New Forest District Council
+Newark & Sherwood District Council
+Newcastle-Under-Lyme Borough Council
+North Devon District Council
+North East Derbyshire District Council
+North Hertfordshire District Council
+North Kesteven District Council
+North Norfolk District Council
+North West Leicestershire District Council
+North Warwickshire Borough Council
+Norwich City Council
+Nuneaton & Bedworth Borough Council
+Oadby & Wigston Borough Council
+Oxford City Council
+Pendle Borough Council
+Preston City Council
+Redditch Borough Council
+Reigate & Banstead Borough Council
+Ribble Valley Borough Council
+Rochford District Council
+Rossendale Borough Council
+Rother District Council
+Rugby Borough Council
+Runnymede Borough Council
+Rushcliffe Borough Council
+Rushmoor Borough Council
+Sevenoaks District Council
+South Cambridgeshire District Council
+South Derbyshire District Council
+South Hams District Council
+South Holland District Council
+South Kesteven District Council
+South Norfolk District Council
+South Oxfordshire District Council
+South Ribble Borough Council
+South Staffordshire District Council
+Spelthorne Borough Council
+St Albans City Council
+Stafford Borough Council
+Staffordshire Moorlands District Council
+Stevenage Borough Council
+Stratford on Avon District Council
+Stroud District Council
+Surrey Heath Borough Council
+Swale Borough Council
+Tamworth Borough Council
+Tandridge District Council
+Teignbridge District Council
+Tendring District Council
+Test Valley Borough Council
+Tewkesbury Borough Council
+Thanet District Council
+Three Rivers District Council
+Tonbridge & Malling Borough Council
+Torridge District Council
+Tunbridge Wells Borough Council
+Uttlesford District Council
+Vale of White Horse District Council
+Warwick District Council
+Watford Borough Council
+Waverley Borough Council
+Wealden District Council
+Welwyn Hatfield Borough Council
+West Devon District Council
+West Lancashire District Council
+West Lindsey District Council
+West Oxfordshire District Council
+West Suffolk Council
+Winchester City Council
+Woking Borough Council
+Worcester City Council
+Worthing Borough Council
+Wychavon District Council
+Wyre Borough Council
+Wyre Forest District Council
