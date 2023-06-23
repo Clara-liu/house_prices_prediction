@@ -1,5 +1,3 @@
-import requests
-import json
 import os
 import logging
 import pandas as pd
@@ -78,7 +76,7 @@ if __name__ == '__main__':
     absdir = os.path.dirname(abspath)
     os.chdir(absdir)
     # set date range
-    start = '1997-02'
+    start = '1995-01'
     end = '2023-05'
     with open('authorities_list.txt', 'r') as f:
         my_list = [line.rstrip() for line in f]

@@ -1,7 +1,6 @@
 import torch
 import math
 
-import numpy as np
 from torch import nn, Tensor
 from typing import Tuple
 
@@ -27,59 +26,6 @@ class PositionalEncoding(nn.Module):
         """
         x = x + self.pe[:x.size(0)]  # encoding on the sequence length dim
         return self.dropout(x)
-    
-
-
-def get_src_trg(
-        sequence: torch.Tensor, 
-        enc_seq_len: int, 
-        target_seq_len: int
-        ) -> Tuple[torch.tensor, torch.tensor, torch.tensor]:
-    """Slice the input sequences and return the appropriate tensors.
-    Adapted from https://towardsdatascience.com/how-to-make-a-pytorch-transformer-for-time-series-forecasting-69e073d4061e
-
-    :param sequence: the input sequences of shape [seq_len, batch_size, embedding_dim]
-    :type sequence: torch.Tensor
-    :param enc_seq_len: the length of the historical data used for prediction
-    :type enc_seq_len: int
-    :param target_seq_len: the length of the target sequence
-    :type target_seq_len: int
-    :return: the tensors used for training src tgt and trg_y
-    :rtype: Tuple[torch.tensor, torch.tensor, torch.tensor]
-    """
-    seq_len = sequence.shape[0]
-    assert seq_len == enc_seq_len + target_seq_len, "Sequence length does not equal (input length + target length)"
-
-    # encoder input
-    src = sequence[:enc_seq_len, :, :]
-    
-    # decoder input. As per the paper, it must have the same dimension as the 
-    # target sequence, and it must contain the last value of src, and all
-    # values of trg_y except the last
-    trg = sequence[enc_seq_len-1:seq_len-1, :, :]
-    
-    assert trg.shape[0] == target_seq_len, "Length of trg does not match target sequence length"
-
-    # The target sequence against which the model output will be compared to compute loss
-    trg_y = sequence[-target_seq_len:, :, :]
-
-    assert trg_y.shape[0] == target_seq_len, "Length of trg_y does not match target sequence length"
-
-    return src, trg, trg_y
-
-
-def generate_square_subsequent_mask(dim1: int, dim2: int) -> Tensor:
-    """copied from https://pytorch.org/tutorials/beginner/transformer_tutorial.html
-
-    :param dim1: for both src and tgt masking, this must be target sequence length
-    :type dim1: int
-    :param dim2: for src masking this must be encoder sequence length (i.e. 
-    the length of the input sequence to the model), and for tgt masking, this must be target sequence length
-    :type dim2: int
-    :return: mask tensor of shape [dim1, dim2]
-    :rtype: Tensor
-    """
-    return torch.triu(torch.ones(dim1, dim2) * float('-inf'), diagonal=1)
 
 
 class TimeSeriesTransformer(nn.Module):
@@ -92,8 +38,8 @@ class TimeSeriesTransformer(nn.Module):
     """
     def __init__(
             self,
+            enc_len: int,
             model_dim: int = 512,
-            enc_len: int = 30,
             n_heads: int = 4,
             dropout_encoder: float=0.15,
             dropout_decoder: float=0.15,
@@ -171,48 +117,48 @@ class TimeSeriesTransformer(nn.Module):
 
 
 
-############# TRAIN TEST #############
-data = torch.rand(35, 32, 1)  # [total_seq_len, batch_size, input_feature_dim]
+# ############ TRAIN TEST #############
+# data = torch.rand(340, 32, 1)  # [total_seq_len, batch_size, input_feature_dim]
 
-model_dim = 512
-n_heads = 8
-enc_len = 30
-trg_len = 5
+# model_dim = 512
+# n_heads = 8
+# enc_len = 330
+# trg_len = 10
 
-model = TimeSeriesTransformer()
+# model = TimeSeriesTransformer(enc_len=enc_len)
 
-src_mask = generate_square_subsequent_mask(
-    dim1=trg_len,
-    dim2=enc_len
-)
-trg_mask = generate_square_subsequent_mask(
-    dim1=trg_len,
-    dim2=trg_len
-)
+# src_mask = generate_square_subsequent_mask(
+#     dim1=trg_len,
+#     dim2=enc_len
+# )
+# trg_mask = generate_square_subsequent_mask(
+#     dim1=trg_len,
+#     dim2=trg_len
+# )
 
-src, trg, trg_y = get_src_trg(data, enc_len, trg_len)
+# src, trg, trg_y = get_src_trg(data, enc_len, trg_len)
 
-output = model(src, trg, src_mask, trg_mask)
+# output = model(src, trg, src_mask, trg_mask)
 
-print(output.shape)
+# print(output.shape)
 
-######## INFERENCE TEST ##########3
+# ####### INFERENCE TEST ##########
 
-src = torch.rand(30, 32, 1)
-trg = torch.rand(2, 32, 1)  # [seq_len, batch_size, feature_dim] note that the first input should be the last known value
+# src = torch.rand(330, 32, 1)
+# trg = torch.rand(10, 32, 1)  # [seq_len, batch_size, feature_dim] note that the first input should be the last known value
 
-dim1 = trg.shape[0]
-dim2 = src.shape[0]
+# dim1 = trg.shape[0]
+# dim2 = src.shape[0]
 
-trg_mask_inf = generate_square_subsequent_mask(
-    dim1=dim1,
-    dim2=dim1
-    )
+# trg_mask_inf = generate_square_subsequent_mask(
+#     dim1=dim1,
+#     dim2=dim1
+#     )
 
-src_mask_inf = generate_square_subsequent_mask(
-    dim1=dim1,
-    dim2=dim2
-    )
-model.eval()
-pred = model(src, trg, src_mask_inf, trg_mask_inf)
-print(pred.shape)
+# src_mask_inf = generate_square_subsequent_mask(
+#     dim1=dim1,
+#     dim2=dim2
+#     )
+# model.eval()
+# pred = model(src, trg, src_mask_inf, trg_mask_inf)
+# print(pred.shape)
