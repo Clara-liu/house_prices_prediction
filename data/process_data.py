@@ -1,21 +1,25 @@
 import logging
+import math
 
 import pandas as pd
 import numpy as np
-from typing import Tuple, Callable
 
+from typing import Tuple, Callable
 from torch.utils.data import Dataset
 from torch import from_numpy, Tensor
 
 
-def split_data(file_path: str, test_series: list, total_seq_len: int = 340) -> Tuple[np.ndarray, np.ndarray, list]:
+def split_data(file_path: str, test_series: list, total_seq_len: int = 348, val_perc: float = 0.15) -> Tuple[np.ndarray, np.ndarray, list]:
     """split data into train and test sets 
 
     :param file_path: path to the data file
     :type file_path: str
     :param test_series: information on what to reserve as test set e.g. ['Ealing', 'Greenwhich', ...]
     :type test_series: list
-    :return: train and test total sequences (not split into src, trg and trg_y) [n_seq, seq_len, n_feature] and region labels for test
+    :param total_seq_len: how long the time series should be. This should depend on how many months
+    there are according to the specified date range in get_data.py
+    :type int
+    :return: train, val and test total sequences (not split into src, trg and trg_y) [n_seq, seq_len, n_feature] and region labels for test
     :rtype: tuple
     """
     df = pd.read_csv(file_path, sep='\t')
@@ -25,8 +29,8 @@ def split_data(file_path: str, test_series: list, total_seq_len: int = 340) -> T
     labels = []
     for region in authorities:
         sliced = df.loc[df['Region'] == region]
-        if sliced.shape[0] != total_seq_len:
-            logging.warning(f'Time series for region {region} does not match total length: {total_seq_len}. Will not use.')
+        if sliced.shape[0] < total_seq_len:
+            logging.warning(f'Time series for region {region} does not reach total length: {total_seq_len}. Will not use.')
         else:
             # get rid of date and region columns
             numeric_df = sliced.select_dtypes(include=np.number)
@@ -42,8 +46,14 @@ def split_data(file_path: str, test_series: list, total_seq_len: int = 340) -> T
 
             else:
                 train = train + numeric_data
-    shape = lambda x: np.expand_dims(np.array(x),2)  # add feature dimension and convert to numpy 
-    return shape(train), shape(test), labels
+    shape = lambda x: np.expand_dims(np.array(x), 2)  # add feature dimension and convert to numpy
+    train, test = shape(train), shape(test)
+    # get val split
+    n_train_seqs = train.shape[0]
+    val_idx = np.random.choice(n_train_seqs, size = math.floor(n_train_seqs*val_perc), replace=False)
+    train_idx = np.ones(n_train_seqs, dtype=bool)
+    train_idx[val_idx] = False
+    return train[train_idx, :, :], train[val_idx, :, :], test, labels
 
 
 class HousePriceDataset(Dataset):

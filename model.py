@@ -45,8 +45,8 @@ class TimeSeriesTransformer(nn.Module):
             dropout_decoder: float=0.15,
             n_encoder_layers: int = 4,
             n_decoder_layers: int = 4,
-            dim_feedforward_encoder: int=2048,
-            dim_feedforward_decoder: int=2048
+            dim_feedforward_encoder: int=1024,
+            dim_feedforward_decoder: int=1024
         ) -> None:
         super().__init__()
         # embed univariate input
