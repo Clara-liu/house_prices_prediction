@@ -5,6 +5,10 @@ import pandas as pd
 from SPARQLWrapper import SPARQLWrapper, JSON
 from tqdm import tqdm
 
+# Globals
+
+START_DATE = '1995-01'
+END_DATE = '2023-12'
 
 def strip_invalid_words(region_name: str)-> str:
     stop_words = ['city', 'council', 'borough']
@@ -75,14 +79,12 @@ if __name__ == '__main__':
     abspath = os.path.abspath(__file__)
     absdir = os.path.dirname(abspath)
     os.chdir(absdir)
-    # set date range
-    start = '1995-01'
-    end = '2023-05'
+
     with open('authorities_list.txt', 'r') as f:
         my_list = [line.rstrip() for line in f]
     saved_data = False
     for region in tqdm(my_list):
-        query = format_query(region, start, end)
+        query = format_query(region, START_DATE, END_DATE)
         df = request_data(query, region)
         if df is None:
             logging.warn(f'Data for {region} not obtained.')
